@@ -15,6 +15,3 @@ D:\peter\Dokumente\Dropbox\remote\c#\bluetooth_remote\bluetooth_remote_1.0\bluet
 D:\peter\Dokumente\Dropbox\remote\c#\bluetooth_remote\bluetooth_remote_1.0\bluetooth_remote_1.0\obj\Debug\bluetooth_remote_1.0.csproj.GenerateResource.Cache
 D:\peter\Dokumente\Dropbox\remote\c#\bluetooth_remote\bluetooth_remote_1.0\bluetooth_remote_1.0\bin\Debug\bluetooth_remote_1.0.exe
 D:\peter\Dokumente\Dropbox\remote\c#\bluetooth_remote\bluetooth_remote_1.0\bluetooth_remote_1.0\bin\Debug\bluetooth_remote_1.0.pdb
-C:\Users\peter\Source\Repos\bluetooth_remote\bluetooth_remote_1.0\bin\Debug\bluetooth_remote_1.0.exe.config
-C:\Users\peter\Source\Repos\bluetooth_remote\bluetooth_remote_1.0\obj\Debug\bluetooth_remote_1.0.exe
-C:\Users\peter\Source\Repos\bluetooth_remote\bluetooth_remote_1.0\obj\Debug\bluetooth_remote_1.0.pdb
