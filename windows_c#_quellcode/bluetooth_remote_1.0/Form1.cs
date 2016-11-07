@@ -14,9 +14,11 @@ namespace bluetooth_remote_1._0
 {
     public partial class Form1 : Form
     {
+        public SerialPort mySerialPort;
         public Form1()
         {
             InitializeComponent();
+            connect();
         }
 
         public void disconnect()
@@ -25,7 +27,7 @@ namespace bluetooth_remote_1._0
         }
         public void connect()
         {
-            SerialPort mySerialPort = new SerialPort("COM4");
+            mySerialPort = new SerialPort("COM4");
 
             mySerialPort.BaudRate = 9600;
             mySerialPort.Parity = Parity.None;
@@ -37,8 +39,9 @@ namespace bluetooth_remote_1._0
             mySerialPort.DataReceived += new SerialDataReceivedEventHandler(DataReceivedHandler);
 
             mySerialPort.Open();
+            l_status.Text = "connected";
 
-           // mySerialPort.Close();
+            // mySerialPort.Close();
         }
         private static void DataReceivedHandler(
                        object sender,
@@ -67,49 +70,12 @@ namespace bluetooth_remote_1._0
                     break;
             }
         }
-        /*
-        public void connect()
-        {
-            SerialPort serialPort = new SerialPort();
-            l_status.Text = "connecting...";
-            serialPort.BaudRate = 9600;
-            serialPort.PortName = "COM4"; // Set in Windows
-            serialPort.Open();
-            int counter = 0;
-            char input;
-            while (serialPort.IsOpen)
-            {
-                l_status.Text = "connected";
-                while (serialPort.BytesToRead > 0)
-                {
-                    input = Convert.ToChar(serialPort.ReadChar());
-                    switch (input)
-                    {
-                        case '1':
-                            Controller.VolumeDown();
-                            break;
-                        case '2':
-                            Controller.VolumeUp();
-                            break;
-                        case '3':
-                            Controller.PreviousTrack();
-                            break;
-                        case '4':
-                            Controller.PlayPause();
-                            break;
-                        case '5':
-                            Controller.NextTrack();
-                            break;
-                    }
-                }
-            }
-            l_status.Text = "disconnected";
-        }
-
-    */
+        
         private void b_connect_Click(object sender, EventArgs e)
         {
-            connect(); 
+            l_status.Text = " hallo";
+            connect();
+            l_status.Text = "connected";
         }
 
         private void l_status_Click(object sender, EventArgs e)
@@ -119,9 +85,8 @@ namespace bluetooth_remote_1._0
 
         private void b_disconnect_Click(object sender, EventArgs e)
         {
-            SerialPort mySerialPort = new SerialPort("COM4");
             mySerialPort.Close();
-            l_disconnect.Text = "disconnect";
+            l_status.Text = "disconnect";
         }
 
         private void label1_Click(object sender, EventArgs e)
