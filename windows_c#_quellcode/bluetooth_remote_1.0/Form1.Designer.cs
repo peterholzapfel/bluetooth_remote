@@ -84,7 +84,7 @@
             this.Controls.Add(this.l_status);
             this.Controls.Add(this.b_connect);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Bluetooth Remote";
             this.ResumeLayout(false);
             this.PerformLayout();
 
