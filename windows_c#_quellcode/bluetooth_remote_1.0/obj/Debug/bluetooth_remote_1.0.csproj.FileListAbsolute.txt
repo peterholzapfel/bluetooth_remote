@@ -18,9 +18,9 @@ D:\peter\Dokumente\Dropbox\remote\c#\bluetooth_remote\bluetooth_remote_1.0\bluet
 C:\Users\peter\Source\Repos\bluetooth_remote\windows_c#_quellcode\bluetooth_remote_1.0\bin\Debug\bluetooth_remote_1.0.exe.config
 C:\Users\peter\Source\Repos\bluetooth_remote\windows_c#_quellcode\bluetooth_remote_1.0\bin\Debug\bluetooth_remote_1.0.exe
 C:\Users\peter\Source\Repos\bluetooth_remote\windows_c#_quellcode\bluetooth_remote_1.0\bin\Debug\bluetooth_remote_1.0.pdb
-C:\Users\peter\Source\Repos\bluetooth_remote\windows_c#_quellcode\bluetooth_remote_1.0\obj\Debug\bluetooth_remote_1.0.csprojResolveAssemblyReference.cache
 C:\Users\peter\Source\Repos\bluetooth_remote\windows_c#_quellcode\bluetooth_remote_1.0\obj\Debug\bluetooth_remote_1._0.Form1.resources
 C:\Users\peter\Source\Repos\bluetooth_remote\windows_c#_quellcode\bluetooth_remote_1.0\obj\Debug\bluetooth_remote_1._0.Properties.Resources.resources
 C:\Users\peter\Source\Repos\bluetooth_remote\windows_c#_quellcode\bluetooth_remote_1.0\obj\Debug\bluetooth_remote_1.0.csproj.GenerateResource.Cache
 C:\Users\peter\Source\Repos\bluetooth_remote\windows_c#_quellcode\bluetooth_remote_1.0\obj\Debug\bluetooth_remote_1.0.exe
 C:\Users\peter\Source\Repos\bluetooth_remote\windows_c#_quellcode\bluetooth_remote_1.0\obj\Debug\bluetooth_remote_1.0.pdb
+C:\Users\peter\Source\Repos\bluetooth_remote\windows_c#_quellcode\bluetooth_remote_1.0\obj\Debug\bluetooth_remote_1.0.csprojResolveAssemblyReference.cache

@@ -15,20 +15,32 @@ namespace bluetooth_remote_1._0
     public partial class Form1 : Form
     {
         public SerialPort mySerialPort;
+        
         public Form1()
         {
             InitializeComponent();
-            connect();
+            init_serialPort();
+            l_status.Text = " connecting ...";
+            /*
+            if (connect() == true)
+            {
+                l_status.Text = "connected";
+            }
+            else
+            {
+                l_status.Text = "not connected";
+            }
+
+            */
         }
 
         public void disconnect()
         {
 
         }
-        public void connect()
+        public void init_serialPort()
         {
             mySerialPort = new SerialPort("COM4");
-
             mySerialPort.BaudRate = 9600;
             mySerialPort.Parity = Parity.None;
             mySerialPort.StopBits = StopBits.One;
@@ -37,9 +49,21 @@ namespace bluetooth_remote_1._0
             mySerialPort.RtsEnable = true;
 
             mySerialPort.DataReceived += new SerialDataReceivedEventHandler(DataReceivedHandler);
-
-            mySerialPort.Open();
-            l_status.Text = "connected";
+    }
+        public bool connect()
+        {
+            if (mySerialPort.IsOpen == false) {
+                mySerialPort.Open();
+                if (mySerialPort.IsOpen)
+                {
+                    l_status.Text = "connected";
+                    return true;
+                }else
+                {
+                    return false;
+                }
+            }
+            return true;
 
             // mySerialPort.Close();
         }
@@ -73,9 +97,13 @@ namespace bluetooth_remote_1._0
         
         private void b_connect_Click(object sender, EventArgs e)
         {
-            l_status.Text = " hallo";
-            connect();
-            l_status.Text = "connected";
+            l_status.Text = " connecting ...";
+            if (connect() == true)
+            {
+                l_status.Text = "connected";
+            } else {
+                l_status.Text = "not connected";
+            }
         }
 
         private void l_status_Click(object sender, EventArgs e)
