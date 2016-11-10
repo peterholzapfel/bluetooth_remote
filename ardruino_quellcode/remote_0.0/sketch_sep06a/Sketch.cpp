@@ -26,7 +26,7 @@ int Taster01 ;
 int Taster02;
 int Pause   = 1000; //sind 1000 mili Sekunden
 int val = 0;    
-int delay_time = 50 ;                // variable for reading the pin status
+int delay_time = 100 ;                // variable for reading the pin status
 // the setup function runs once when you press reset or power the board
 void setup() {
 	// initialize digital pin 13 as an output.
@@ -92,32 +92,23 @@ void sendCommand(int command){
 	}	
 }
 void play(){
-	sendCommand(4);
-	digitalWrite(LED02, HIGH);	
+	sendCommand(4);	
 }
 void previous_song(){
 	sendCommand(3);
-	digitalWrite(LED03, HIGH);
 	delay(100);
 }
 void next_Song(){
 	sendCommand(5);
-	digitalWrite(LED01, HIGH);
 	delay(100);	
 } 
 
 void reduce_volume(){
 	sendCommand(1);
-	digitalWrite(LED05, HIGH);	
-	delay(delay_time);
-	digitalWrite(LED05, LOW);
 	delay(delay_time);
 }
 void increase_volume(){
 	sendCommand(2);
-	digitalWrite(LED04, HIGH);
-	delay(delay_time);
-	digitalWrite(LED04, LOW);	
 	delay(delay_time);
 }
 bool isPlay(int first,int second){
@@ -137,20 +128,11 @@ void loop() {
 		int second_sensor;
 		int t;
 		int x;
-		digitalWrite(LED01, LOW);
-		digitalWrite(LED02, LOW);
-		digitalWrite(LED03, LOW);
-		digitalWrite(LED04, LOW);
-		digitalWrite(LED05, LOW);
-		digitalWrite(LED06, LOW);
-		digitalWrite(LED07, LOW);
 
 		first_sensor = 1;
 		second_sensor = 2;
 		while (1){
 		while (1) {
-			digitalWrite(LED06, HIGH);
-			digitalWrite(LED07, LOW);
 			if (isActive(1)) {
 				first_sensor = 1;
 				second_sensor = 2;           // check if the input is HIGH
@@ -167,8 +149,6 @@ void loop() {
 		break_flag = false;
 		while (t > 0)
 		{
-			digitalWrite(LED06, LOW);
-			digitalWrite(LED07, HIGH);
 			delay(5);
 			while (x > 0) {
 				if (isActive(second_sensor)) {
