@@ -6,37 +6,27 @@
 
 // Variablen vergabe
 
-#define trigPin1 13
-#define echoPin1 12
+#define trigPin1 3
+#define echoPin1 2
 
 
-#define trigPin2 11
-#define echoPin2 10
+#define trigPin2 8
+#define echoPin2 7
 
 
 
-int LED01      = 3;
-int LED02      = 4;
-int LED03      = 5;
-int LED04      = 6;
-int LED05      = 7;
-int LED06      = 8;
-int LED07      = 9;
+int LED01      = 10;
+int LED02      = 6;
 int Taster01 ;
 int Taster02;
 int Pause   = 1000; //sind 1000 mili Sekunden
 int val = 0;    
-int delay_time = 100 ;                // variable for reading the pin status
+int delay_time = 200 ;                // variable for reading the pin status
 // the setup function runs once when you press reset or power the board
 void setup() {
 	// initialize digital pin 13 as an output.
 	pinMode(LED01, OUTPUT);
 	pinMode(LED02, OUTPUT);
-	pinMode(LED03, OUTPUT);
-	pinMode(LED04, OUTPUT);
-	pinMode(LED05, OUTPUT);
-	pinMode(LED06, OUTPUT);
-	pinMode(LED07, OUTPUT);
 	
 	 pinMode(trigPin1, OUTPUT);
 	 pinMode(echoPin1, INPUT);
@@ -51,6 +41,7 @@ void setup() {
 // Bluetooth
 
 Serial.begin(9600); //set baud rate
+Serial.print("AT+BT-Remote");
 }
 
 // the loop function runs over and over again forever
@@ -114,7 +105,7 @@ void increase_volume(){
 bool isPlay(int first,int second){
 	int t = 50 ;
 	while (t > 0) {
-		delay(10);
+		delay(20);
 		t = t-1 ;
 		if	(((isActive(first) && isActive(second)) == 0) && (t > 1)){
 			return false;
@@ -128,63 +119,63 @@ void loop() {
 		int second_sensor;
 		int t;
 		int x;
-
+		digitalWrite(10, LOW);
 		first_sensor = 1;
 		second_sensor = 2;
 		while (1){
-		while (1) {
-			if (isActive(1)) {
-				first_sensor = 1;
-				second_sensor = 2;           // check if the input is HIGH
-				break;
+			while (1){
+				if (isActive(1)) {
+					first_sensor = 1;
+					second_sensor = 2;           // check if the input is HIGH
+					break;
+				}
+				if (isActive(2)) {            // check if the input is HIGH
+					first_sensor = 2;
+					second_sensor = 1;
+					break;
+				}
 			}
-			if (isActive(2)) {            // check if the input is HIGH
-				first_sensor = 2;
-				second_sensor = 1;
-				break;
-			}
-		}
-		t = 5 ;
-		x = 10 ;
-		break_flag = false;
-		while (t > 0)
-		{
-			delay(5);
-			while (x > 0) {
-				if (isActive(second_sensor)) {
-					if (second_sensor == 1){
-						if (isPlay(first_sensor,second_sensor)) {
-							play();
-							while (isActive(first_sensor) && isActive(second_sensor)) {
-								delay(15);
+			t = 5 ;
+			x = 10 ;
+			break_flag = false;
+			while (t > 0){
+				delay(5);
+				while (x > 0) {
+					if (isActive(second_sensor)) {
+						if (second_sensor == 1){
+							if (isPlay(first_sensor,second_sensor)) {
+								play();
+								while (isActive(first_sensor) && isActive(second_sensor)) {
+									delay(15);
+								}
+								break_flag = true;
+								break;	
 							}
-							break_flag = true;
-							break;	
-						}
-						// previous Song
-						previous_song();
-						break_flag = true;
-						break;
-					}
-					if (second_sensor == 2){
-						if (isPlay(first_sensor,second_sensor)) {
-							play();
-							while (isActive(first_sensor) && isActive(second_sensor)) {
-								delay(15);
-							}
+							// previous Song
+							previous_song();
 							break_flag = true;
 							break;
 						}
-						// Next Song
-						next_Song();
-						break_flag = true;
-						break;
+						if (second_sensor == 2){
+							if (isPlay(first_sensor,second_sensor)) {
+								play();
+								while (isActive(first_sensor) && isActive(second_sensor)) {
+									delay(15);
+								}
+								break_flag = true;
+								break;
+							}
+							// Next Song
+							next_Song();
+							break_flag = true;
+							break;
+						}
 					}
-				}
 				delay(5);
 				x = x-1;
 			}
 			if (break_flag){
+				
 				delay(100);
 				break;
 					}
@@ -211,11 +202,11 @@ void loop() {
 				break;
 				
 			}
+		delay(500);
 		}
 		
 		}
-		delay(500);
-		}
+}
 	
 	
 
