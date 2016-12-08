@@ -20,6 +20,7 @@ namespace bluetooth_remote_1._0
         {
             InitializeComponent();
             init_serialPort();
+            Form1.listBox = this.lb_log;
             l_status.Text = " connecting ...";
             /*
             if (connect() == true)
@@ -49,7 +50,7 @@ namespace bluetooth_remote_1._0
             mySerialPort.RtsEnable = true;
 
             mySerialPort.DataReceived += new SerialDataReceivedEventHandler(DataReceivedHandler);
-    }
+        }
         public bool connect()
         {
             if (mySerialPort.IsOpen == false) {
@@ -67,6 +68,10 @@ namespace bluetooth_remote_1._0
 
             // mySerialPort.Close();
         }
+        public void addItem(char text)
+        {
+            lb_log.Items.Add(text);
+        }
         private static void DataReceivedHandler(
                        object sender,
                        SerialDataReceivedEventArgs e)
@@ -75,26 +80,38 @@ namespace bluetooth_remote_1._0
             SerialPort sp = (SerialPort)sender;
             string indata = sp.ReadExisting();
             input = Convert.ToChar(indata);
+           // Form1.listBox.Items.Add(indata);
             switch (input)
             {
-                case '1':
+                case 'a':
                     Controller.VolumeDown();
                     break;
-                case '2':
+                case 'b':
                     Controller.VolumeUp();
                     break;
-                case '3':
+                case 'c':
                     Controller.PreviousTrack();
                     break;
-                case '4':
+                case 'd':
                     Controller.PlayPause();
                     break;
-                case '5':
+                case 'e':
+                    Controller.NextTrack();
+                    break;
+                case 'h':
+                    Controller.NextTrack();
+                    break;
+                case 'i':
                     Controller.NextTrack();
                     break;
             }
         }
-        
+
+        private static void addItem()
+        {
+            throw new NotImplementedException();
+        }
+
         private void b_connect_Click(object sender, EventArgs e)
         {
             l_status.Text = " connecting ...";
@@ -121,5 +138,6 @@ namespace bluetooth_remote_1._0
         {
 
         }
+        static System.Windows.Forms.ListBox listBox;
     }
 }

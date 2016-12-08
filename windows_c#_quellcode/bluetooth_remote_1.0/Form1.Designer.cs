@@ -32,6 +32,7 @@
             this.l_status = new System.Windows.Forms.Label();
             this.b_disconnect = new System.Windows.Forms.Button();
             this.l_disconnect = new System.Windows.Forms.Label();
+            this.lb_log = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
             // 
             // b_connect
@@ -74,11 +75,20 @@
             this.l_disconnect.Text = ".";
             this.l_disconnect.Click += new System.EventHandler(this.label1_Click);
             // 
+            // lb_log
+            // 
+            this.lb_log.FormattingEnabled = true;
+            this.lb_log.Location = new System.Drawing.Point(41, 193);
+            this.lb_log.Name = "lb_log";
+            this.lb_log.Size = new System.Drawing.Size(170, 173);
+            this.lb_log.TabIndex = 4;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(242, 172);
+            this.ClientSize = new System.Drawing.Size(261, 408);
+            this.Controls.Add(this.lb_log);
             this.Controls.Add(this.l_disconnect);
             this.Controls.Add(this.b_disconnect);
             this.Controls.Add(this.l_status);
@@ -96,6 +106,7 @@
         private System.Windows.Forms.Label l_status;
         private System.Windows.Forms.Button b_disconnect;
         private System.Windows.Forms.Label l_disconnect;
+        private System.Windows.Forms.ListBox lb_log;
     }
 }
 

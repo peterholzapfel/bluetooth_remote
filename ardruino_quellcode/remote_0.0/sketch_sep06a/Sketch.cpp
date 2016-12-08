@@ -41,7 +41,7 @@ void setup() {
 // Bluetooth
 
 Serial.begin(9600); //set baud rate
-Serial.print("AT+BT-Remote");
+//Serial.print("AT+BT-Remote");
 }
 
 // the loop function runs over and over again forever
@@ -76,30 +76,30 @@ bool isActive(int sensor){
 		}
 		return false;
 }
-void sendCommand(int command){
+void sendCommand(char command){
 	if(!Serial.available())
 	{
 		Serial.print(command);
 	}	
 }
 void play(){
-	sendCommand(4);	
+	sendCommand('d');	
 }
 void previous_song(){
-	sendCommand(3);
+	sendCommand('c');
 	delay(100);
 }
 void next_Song(){
-	sendCommand(5);
+	sendCommand('e');
 	delay(100);	
 } 
 
 void reduce_volume(){
-	sendCommand(1);
+	sendCommand('a');
 	delay(delay_time);
 }
 void increase_volume(){
-	sendCommand(2);
+	sendCommand('b');
 	delay(delay_time);
 }
 bool isPlay(int first,int second){
@@ -120,24 +120,31 @@ void loop() {
 		int t;
 		int x;
 		digitalWrite(10, LOW);
+		
 		first_sensor = 1;
 		second_sensor = 2;
 		while (1){
 			while (1){
+				delay(500);
 				if (isActive(1)) {
+					digitalWrite(10, HIGH);
 					first_sensor = 1;
 					second_sensor = 2;           // check if the input is HIGH
 					break;
 				}
-				if (isActive(2)) {            // check if the input is HIGH
+				if (isActive(2)) {  
+					          // check if the input is HIGH
+					digitalWrite(10, HIGH);
 					first_sensor = 2;
 					second_sensor = 1;
 					break;
 				}
+				
 			}
 			t = 5 ;
 			x = 10 ;
 			break_flag = false;
+			//digitalWrite(10, HIGH);
 			while (t > 0){
 				delay(5);
 				while (x > 0) {
@@ -157,6 +164,7 @@ void loop() {
 							break;
 						}
 						if (second_sensor == 2){
+							/*
 							if (isPlay(first_sensor,second_sensor)) {
 								play();
 								while (isActive(first_sensor) && isActive(second_sensor)) {
@@ -165,6 +173,7 @@ void loop() {
 								break_flag = true;
 								break;
 							}
+							*/
 							// Next Song
 							next_Song();
 							break_flag = true;
@@ -196,6 +205,7 @@ void loop() {
 			}
 			if (first_sensor == 2){
 				while (isActive(first_sensor)){
+					
 					increase_volume();
 					
 				}
