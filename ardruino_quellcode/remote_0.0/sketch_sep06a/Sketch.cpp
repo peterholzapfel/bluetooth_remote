@@ -21,7 +21,8 @@ int Taster01 ;
 int Taster02;
 int Pause   = 1000; //sind 1000 mili Sekunden
 int val = 0;    
-int delay_time = 200 ;                // variable for reading the pin status
+int delay_time = 200 ;  
+bool debug = false;              // variable for reading the pin status
 // the setup function runs once when you press reset or power the board
 void setup() {
 	// initialize digital pin 13 as an output.
@@ -77,10 +78,8 @@ bool isActive(int sensor){
 		return false;
 }
 void sendCommand(char command){
-	if(!Serial.available())
-	{
+
 		Serial.print(command);
-	}	
 }
 void play(){
 	sendCommand('d');	
@@ -120,12 +119,16 @@ void loop() {
 		int t;
 		int x;
 		digitalWrite(10, LOW);
-		
+		reduce_volume();
 		first_sensor = 1;
 		second_sensor = 2;
+		if (debug){
+			sendCommand('s');		
+		}
 		while (1){
+			digitalWrite(10, LOW);
 			while (1){
-				delay(500);
+				delay(5);
 				if (isActive(1)) {
 					digitalWrite(10, HIGH);
 					first_sensor = 1;
@@ -150,6 +153,7 @@ void loop() {
 				while (x > 0) {
 					if (isActive(second_sensor)) {
 						if (second_sensor == 1){
+							
 							if (isPlay(first_sensor,second_sensor)) {
 								play();
 								while (isActive(first_sensor) && isActive(second_sensor)) {
@@ -158,13 +162,14 @@ void loop() {
 								break_flag = true;
 								break;	
 							}
+							
 							// previous Song
 							previous_song();
 							break_flag = true;
 							break;
 						}
 						if (second_sensor == 2){
-							/*
+							
 							if (isPlay(first_sensor,second_sensor)) {
 								play();
 								while (isActive(first_sensor) && isActive(second_sensor)) {
@@ -173,7 +178,7 @@ void loop() {
 								break_flag = true;
 								break;
 							}
-							*/
+							
 							// Next Song
 							next_Song();
 							break_flag = true;
@@ -184,30 +189,31 @@ void loop() {
 				x = x-1;
 			}
 			if (break_flag){
-				
+				if (debug){
+					sendCommand('2');;
+				}
 				delay(100);
 				break;
-					}
+			}
 			t = t-1;	
-		}
+		/*
 		if (break_flag){
+			sendCommand('3');
 			delay(100);
 			break;
 		}
+		*/
 		if (isActive(first_sensor)){
 			if (first_sensor == 1){
 				while (isActive(first_sensor)) {
-					reduce_volume();
-					
+					reduce_volume();			
 				}
 				break;
 				
 			}
 			if (first_sensor == 2){
-				while (isActive(first_sensor)){
-					
-					increase_volume();
-					
+				while (isActive(first_sensor)){		
+					increase_volume();			
 				}
 				break;
 				
@@ -216,6 +222,7 @@ void loop() {
 		}
 		
 		}
+}
 }
 	
 	

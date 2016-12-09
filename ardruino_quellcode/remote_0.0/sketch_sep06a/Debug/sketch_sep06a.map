@@ -25,7 +25,7 @@ c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/..
 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libm.a(fp_zero.o)
                               c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libm.a(fixunssfsi.o) (__fp_zero)
 C:\Users\peter\Source\Repos\bluetooth_remote\ardruino_quellcode\remote_0.0\ArduinoCore\Debug\libArduinoCore.a(HardwareSerial.o)
-                              Sketch.o (_ZN14HardwareSerial9availableEv)
+                              Sketch.o (_ZN14HardwareSerial5beginEmh)
 C:\Users\peter\Source\Repos\bluetooth_remote\ardruino_quellcode\remote_0.0\ArduinoCore\Debug\libArduinoCore.a(HardwareSerial0.o)
                               Sketch.o (Serial)
 C:\Users\peter\Source\Repos\bluetooth_remote\ardruino_quellcode\remote_0.0\ArduinoCore\Debug\libArduinoCore.a(main.o)
@@ -643,29 +643,29 @@ END GROUP
  .text._Z8isActivei
                 0x000001e8       0x84 Sketch.o
                 0x000001e8                _Z8isActivei
- .text._Z6isPlayii
-                0x0000026c       0x54 Sketch.o
-                0x0000026c                _Z6isPlayii
  .text._Z11sendCommandc
-                0x000002c0       0x32 Sketch.o
-                0x000002c0                _Z11sendCommandc
+                0x0000026c        0xa Sketch.o
+                0x0000026c                _Z11sendCommandc
  .text._Z4playv
-                0x000002f2        0x6 Sketch.o
-                0x000002f2                _Z4playv
+                0x00000276        0x6 Sketch.o
+                0x00000276                _Z4playv
  .text._Z13previous_songv
-                0x000002f8       0x12 Sketch.o
-                0x000002f8                _Z13previous_songv
+                0x0000027c       0x12 Sketch.o
+                0x0000027c                _Z13previous_songv
  .text._Z9next_Songv
-                0x0000030a       0x12 Sketch.o
-                0x0000030a                _Z9next_Songv
+                0x0000028e       0x12 Sketch.o
+                0x0000028e                _Z9next_Songv
  .text._Z13reduce_volumev
-                0x0000031c       0x1a Sketch.o
-                0x0000031c                _Z13reduce_volumev
+                0x000002a0       0x1a Sketch.o
+                0x000002a0                _Z13reduce_volumev
  .text._Z15increase_volumev
-                0x00000336       0x1a Sketch.o
-                0x00000336                _Z15increase_volumev
- .text.loop     0x00000350      0x15c Sketch.o
-                0x00000350                loop
+                0x000002ba       0x1a Sketch.o
+                0x000002ba                _Z15increase_volumev
+ .text._Z6isPlayii
+                0x000002d4       0x54 Sketch.o
+                0x000002d4                _Z6isPlayii
+ .text.loop     0x00000328      0x184 Sketch.o
+                0x00000328                loop
  .text.avr-libc.fplib
                 0x000004ac        0x8 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libm.a(divsf3.o)
                 0x000004ac                __divsf3
@@ -835,30 +835,32 @@ END GROUP
                 0x00800116                _edata = .
                 0x00800116                PROVIDE (__data_end, .)
 
-.bss            0x00800116       0xa6
+.bss            0x00800116       0xa7
                 0x00800116                PROVIDE (__bss_start, .)
  *(.bss)
  *(.bss*)
- .bss.Serial    0x00800116       0x9d C:\Users\peter\Source\Repos\bluetooth_remote\ardruino_quellcode\remote_0.0\ArduinoCore\Debug\libArduinoCore.a(HardwareSerial0.o)
-                0x00800116                Serial
+ .bss.debug     0x00800116        0x1 Sketch.o
+                0x00800116                debug
+ .bss.Serial    0x00800117       0x9d C:\Users\peter\Source\Repos\bluetooth_remote\ardruino_quellcode\remote_0.0\ArduinoCore\Debug\libArduinoCore.a(HardwareSerial0.o)
+                0x00800117                Serial
  .bss.timer0_fract
-                0x008001b3        0x1 C:\Users\peter\Source\Repos\bluetooth_remote\ardruino_quellcode\remote_0.0\ArduinoCore\Debug\libArduinoCore.a(wiring.o)
+                0x008001b4        0x1 C:\Users\peter\Source\Repos\bluetooth_remote\ardruino_quellcode\remote_0.0\ArduinoCore\Debug\libArduinoCore.a(wiring.o)
  .bss.timer0_millis
-                0x008001b4        0x4 C:\Users\peter\Source\Repos\bluetooth_remote\ardruino_quellcode\remote_0.0\ArduinoCore\Debug\libArduinoCore.a(wiring.o)
-                0x008001b4                timer0_millis
+                0x008001b5        0x4 C:\Users\peter\Source\Repos\bluetooth_remote\ardruino_quellcode\remote_0.0\ArduinoCore\Debug\libArduinoCore.a(wiring.o)
+                0x008001b5                timer0_millis
  .bss.timer0_overflow_count
-                0x008001b8        0x4 C:\Users\peter\Source\Repos\bluetooth_remote\ardruino_quellcode\remote_0.0\ArduinoCore\Debug\libArduinoCore.a(wiring.o)
-                0x008001b8                timer0_overflow_count
+                0x008001b9        0x4 C:\Users\peter\Source\Repos\bluetooth_remote\ardruino_quellcode\remote_0.0\ArduinoCore\Debug\libArduinoCore.a(wiring.o)
+                0x008001b9                timer0_overflow_count
  *(COMMON)
-                0x008001bc                PROVIDE (__bss_end, .)
+                0x008001bd                PROVIDE (__bss_end, .)
                 0x00000f14                __data_load_start = LOADADDR (.data)
                 0x00000f2a                __data_load_end = (__data_load_start + SIZEOF (.data))
 
-.noinit         0x008001bc        0x0
+.noinit         0x008001bd        0x0
                 [!provide]                PROVIDE (__noinit_start, .)
  *(.noinit*)
                 [!provide]                PROVIDE (__noinit_end, .)
-                0x008001bc                _end = .
+                0x008001bd                _end = .
                 [!provide]                PROVIDE (__heap_start, .)
 
 .eeprom         0x00810000        0x0
@@ -957,87 +959,87 @@ END GROUP
 .debug_pubnames
  *(.debug_pubnames)
 
-.debug_info     0x00000000     0x7ccb
+.debug_info     0x00000000     0x7d5a
  *(.debug_info .gnu.linkonce.wi.*)
- .debug_info    0x00000000      0xa15 Sketch.o
- .debug_info    0x00000a15     0x1e31 C:\Users\peter\Source\Repos\bluetooth_remote\ardruino_quellcode\remote_0.0\ArduinoCore\Debug\libArduinoCore.a(HardwareSerial.o)
- .debug_info    0x00002846     0x1a2a C:\Users\peter\Source\Repos\bluetooth_remote\ardruino_quellcode\remote_0.0\ArduinoCore\Debug\libArduinoCore.a(HardwareSerial0.o)
- .debug_info    0x00004270      0x231 C:\Users\peter\Source\Repos\bluetooth_remote\ardruino_quellcode\remote_0.0\ArduinoCore\Debug\libArduinoCore.a(main.o)
- .debug_info    0x000044a1     0x29e1 C:\Users\peter\Source\Repos\bluetooth_remote\ardruino_quellcode\remote_0.0\ArduinoCore\Debug\libArduinoCore.a(Print.o)
- .debug_info    0x00006e82      0x2c8 C:\Users\peter\Source\Repos\bluetooth_remote\ardruino_quellcode\remote_0.0\ArduinoCore\Debug\libArduinoCore.a(wiring.o)
- .debug_info    0x0000714a      0x5f9 C:\Users\peter\Source\Repos\bluetooth_remote\ardruino_quellcode\remote_0.0\ArduinoCore\Debug\libArduinoCore.a(wiring_digital.o)
- .debug_info    0x00007743      0x49c C:\Users\peter\Source\Repos\bluetooth_remote\ardruino_quellcode\remote_0.0\ArduinoCore\Debug\libArduinoCore.a(wiring_pulse.o)
- .debug_info    0x00007bdf       0x3e C:\Users\peter\Source\Repos\bluetooth_remote\ardruino_quellcode\remote_0.0\ArduinoCore\Debug\libArduinoCore.a(hooks.o)
- .debug_info    0x00007c1d       0xae C:\Users\peter\Source\Repos\bluetooth_remote\ardruino_quellcode\remote_0.0\ArduinoCore\Debug\libArduinoCore.a(wiring_pulse.o)
+ .debug_info    0x00000000      0xaa4 Sketch.o
+ .debug_info    0x00000aa4     0x1e31 C:\Users\peter\Source\Repos\bluetooth_remote\ardruino_quellcode\remote_0.0\ArduinoCore\Debug\libArduinoCore.a(HardwareSerial.o)
+ .debug_info    0x000028d5     0x1a2a C:\Users\peter\Source\Repos\bluetooth_remote\ardruino_quellcode\remote_0.0\ArduinoCore\Debug\libArduinoCore.a(HardwareSerial0.o)
+ .debug_info    0x000042ff      0x231 C:\Users\peter\Source\Repos\bluetooth_remote\ardruino_quellcode\remote_0.0\ArduinoCore\Debug\libArduinoCore.a(main.o)
+ .debug_info    0x00004530     0x29e1 C:\Users\peter\Source\Repos\bluetooth_remote\ardruino_quellcode\remote_0.0\ArduinoCore\Debug\libArduinoCore.a(Print.o)
+ .debug_info    0x00006f11      0x2c8 C:\Users\peter\Source\Repos\bluetooth_remote\ardruino_quellcode\remote_0.0\ArduinoCore\Debug\libArduinoCore.a(wiring.o)
+ .debug_info    0x000071d9      0x5f9 C:\Users\peter\Source\Repos\bluetooth_remote\ardruino_quellcode\remote_0.0\ArduinoCore\Debug\libArduinoCore.a(wiring_digital.o)
+ .debug_info    0x000077d2      0x49c C:\Users\peter\Source\Repos\bluetooth_remote\ardruino_quellcode\remote_0.0\ArduinoCore\Debug\libArduinoCore.a(wiring_pulse.o)
+ .debug_info    0x00007c6e       0x3e C:\Users\peter\Source\Repos\bluetooth_remote\ardruino_quellcode\remote_0.0\ArduinoCore\Debug\libArduinoCore.a(hooks.o)
+ .debug_info    0x00007cac       0xae C:\Users\peter\Source\Repos\bluetooth_remote\ardruino_quellcode\remote_0.0\ArduinoCore\Debug\libArduinoCore.a(wiring_pulse.o)
 
-.debug_abbrev   0x00000000     0x14d5
+.debug_abbrev   0x00000000     0x1483
  *(.debug_abbrev)
- .debug_abbrev  0x00000000      0x2f0 Sketch.o
- .debug_abbrev  0x000002f0      0x478 C:\Users\peter\Source\Repos\bluetooth_remote\ardruino_quellcode\remote_0.0\ArduinoCore\Debug\libArduinoCore.a(HardwareSerial.o)
- .debug_abbrev  0x00000768      0x3b1 C:\Users\peter\Source\Repos\bluetooth_remote\ardruino_quellcode\remote_0.0\ArduinoCore\Debug\libArduinoCore.a(HardwareSerial0.o)
- .debug_abbrev  0x00000b19      0x109 C:\Users\peter\Source\Repos\bluetooth_remote\ardruino_quellcode\remote_0.0\ArduinoCore\Debug\libArduinoCore.a(main.o)
- .debug_abbrev  0x00000c22      0x487 C:\Users\peter\Source\Repos\bluetooth_remote\ardruino_quellcode\remote_0.0\ArduinoCore\Debug\libArduinoCore.a(Print.o)
- .debug_abbrev  0x000010a9      0x145 C:\Users\peter\Source\Repos\bluetooth_remote\ardruino_quellcode\remote_0.0\ArduinoCore\Debug\libArduinoCore.a(wiring.o)
- .debug_abbrev  0x000011ee      0x15b C:\Users\peter\Source\Repos\bluetooth_remote\ardruino_quellcode\remote_0.0\ArduinoCore\Debug\libArduinoCore.a(wiring_digital.o)
- .debug_abbrev  0x00001349      0x14e C:\Users\peter\Source\Repos\bluetooth_remote\ardruino_quellcode\remote_0.0\ArduinoCore\Debug\libArduinoCore.a(wiring_pulse.o)
- .debug_abbrev  0x00001497       0x2a C:\Users\peter\Source\Repos\bluetooth_remote\ardruino_quellcode\remote_0.0\ArduinoCore\Debug\libArduinoCore.a(hooks.o)
- .debug_abbrev  0x000014c1       0x14 C:\Users\peter\Source\Repos\bluetooth_remote\ardruino_quellcode\remote_0.0\ArduinoCore\Debug\libArduinoCore.a(wiring_pulse.o)
+ .debug_abbrev  0x00000000      0x29e Sketch.o
+ .debug_abbrev  0x0000029e      0x478 C:\Users\peter\Source\Repos\bluetooth_remote\ardruino_quellcode\remote_0.0\ArduinoCore\Debug\libArduinoCore.a(HardwareSerial.o)
+ .debug_abbrev  0x00000716      0x3b1 C:\Users\peter\Source\Repos\bluetooth_remote\ardruino_quellcode\remote_0.0\ArduinoCore\Debug\libArduinoCore.a(HardwareSerial0.o)
+ .debug_abbrev  0x00000ac7      0x109 C:\Users\peter\Source\Repos\bluetooth_remote\ardruino_quellcode\remote_0.0\ArduinoCore\Debug\libArduinoCore.a(main.o)
+ .debug_abbrev  0x00000bd0      0x487 C:\Users\peter\Source\Repos\bluetooth_remote\ardruino_quellcode\remote_0.0\ArduinoCore\Debug\libArduinoCore.a(Print.o)
+ .debug_abbrev  0x00001057      0x145 C:\Users\peter\Source\Repos\bluetooth_remote\ardruino_quellcode\remote_0.0\ArduinoCore\Debug\libArduinoCore.a(wiring.o)
+ .debug_abbrev  0x0000119c      0x15b C:\Users\peter\Source\Repos\bluetooth_remote\ardruino_quellcode\remote_0.0\ArduinoCore\Debug\libArduinoCore.a(wiring_digital.o)
+ .debug_abbrev  0x000012f7      0x14e C:\Users\peter\Source\Repos\bluetooth_remote\ardruino_quellcode\remote_0.0\ArduinoCore\Debug\libArduinoCore.a(wiring_pulse.o)
+ .debug_abbrev  0x00001445       0x2a C:\Users\peter\Source\Repos\bluetooth_remote\ardruino_quellcode\remote_0.0\ArduinoCore\Debug\libArduinoCore.a(hooks.o)
+ .debug_abbrev  0x0000146f       0x14 C:\Users\peter\Source\Repos\bluetooth_remote\ardruino_quellcode\remote_0.0\ArduinoCore\Debug\libArduinoCore.a(wiring_pulse.o)
 
-.debug_line     0x00000000     0x1b53
+.debug_line     0x00000000     0x1b72
  *(.debug_line .debug_line.* .debug_line_end)
- .debug_line    0x00000000      0x431 Sketch.o
- .debug_line    0x00000431      0x426 C:\Users\peter\Source\Repos\bluetooth_remote\ardruino_quellcode\remote_0.0\ArduinoCore\Debug\libArduinoCore.a(HardwareSerial.o)
- .debug_line    0x00000857      0x257 C:\Users\peter\Source\Repos\bluetooth_remote\ardruino_quellcode\remote_0.0\ArduinoCore\Debug\libArduinoCore.a(HardwareSerial0.o)
- .debug_line    0x00000aae      0x175 C:\Users\peter\Source\Repos\bluetooth_remote\ardruino_quellcode\remote_0.0\ArduinoCore\Debug\libArduinoCore.a(main.o)
- .debug_line    0x00000c23      0x644 C:\Users\peter\Source\Repos\bluetooth_remote\ardruino_quellcode\remote_0.0\ArduinoCore\Debug\libArduinoCore.a(Print.o)
- .debug_line    0x00001267      0x299 C:\Users\peter\Source\Repos\bluetooth_remote\ardruino_quellcode\remote_0.0\ArduinoCore\Debug\libArduinoCore.a(wiring.o)
- .debug_line    0x00001500      0x252 C:\Users\peter\Source\Repos\bluetooth_remote\ardruino_quellcode\remote_0.0\ArduinoCore\Debug\libArduinoCore.a(wiring_digital.o)
- .debug_line    0x00001752      0x1ca C:\Users\peter\Source\Repos\bluetooth_remote\ardruino_quellcode\remote_0.0\ArduinoCore\Debug\libArduinoCore.a(wiring_pulse.o)
- .debug_line    0x0000191c       0x41 C:\Users\peter\Source\Repos\bluetooth_remote\ardruino_quellcode\remote_0.0\ArduinoCore\Debug\libArduinoCore.a(hooks.o)
- .debug_line    0x0000195d      0x1f6 C:\Users\peter\Source\Repos\bluetooth_remote\ardruino_quellcode\remote_0.0\ArduinoCore\Debug\libArduinoCore.a(wiring_pulse.o)
+ .debug_line    0x00000000      0x450 Sketch.o
+ .debug_line    0x00000450      0x426 C:\Users\peter\Source\Repos\bluetooth_remote\ardruino_quellcode\remote_0.0\ArduinoCore\Debug\libArduinoCore.a(HardwareSerial.o)
+ .debug_line    0x00000876      0x257 C:\Users\peter\Source\Repos\bluetooth_remote\ardruino_quellcode\remote_0.0\ArduinoCore\Debug\libArduinoCore.a(HardwareSerial0.o)
+ .debug_line    0x00000acd      0x175 C:\Users\peter\Source\Repos\bluetooth_remote\ardruino_quellcode\remote_0.0\ArduinoCore\Debug\libArduinoCore.a(main.o)
+ .debug_line    0x00000c42      0x644 C:\Users\peter\Source\Repos\bluetooth_remote\ardruino_quellcode\remote_0.0\ArduinoCore\Debug\libArduinoCore.a(Print.o)
+ .debug_line    0x00001286      0x299 C:\Users\peter\Source\Repos\bluetooth_remote\ardruino_quellcode\remote_0.0\ArduinoCore\Debug\libArduinoCore.a(wiring.o)
+ .debug_line    0x0000151f      0x252 C:\Users\peter\Source\Repos\bluetooth_remote\ardruino_quellcode\remote_0.0\ArduinoCore\Debug\libArduinoCore.a(wiring_digital.o)
+ .debug_line    0x00001771      0x1ca C:\Users\peter\Source\Repos\bluetooth_remote\ardruino_quellcode\remote_0.0\ArduinoCore\Debug\libArduinoCore.a(wiring_pulse.o)
+ .debug_line    0x0000193b       0x41 C:\Users\peter\Source\Repos\bluetooth_remote\ardruino_quellcode\remote_0.0\ArduinoCore\Debug\libArduinoCore.a(hooks.o)
+ .debug_line    0x0000197c      0x1f6 C:\Users\peter\Source\Repos\bluetooth_remote\ardruino_quellcode\remote_0.0\ArduinoCore\Debug\libArduinoCore.a(wiring_pulse.o)
 
-.debug_frame    0x00000000      0x8cc
+.debug_frame    0x00000000      0x894
  *(.debug_frame)
- .debug_frame   0x00000000      0x118 Sketch.o
- .debug_frame   0x00000118      0x110 C:\Users\peter\Source\Repos\bluetooth_remote\ardruino_quellcode\remote_0.0\ArduinoCore\Debug\libArduinoCore.a(HardwareSerial.o)
- .debug_frame   0x00000228       0xc0 C:\Users\peter\Source\Repos\bluetooth_remote\ardruino_quellcode\remote_0.0\ArduinoCore\Debug\libArduinoCore.a(HardwareSerial0.o)
- .debug_frame   0x000002e8       0x54 C:\Users\peter\Source\Repos\bluetooth_remote\ardruino_quellcode\remote_0.0\ArduinoCore\Debug\libArduinoCore.a(main.o)
- .debug_frame   0x0000033c      0x39c C:\Users\peter\Source\Repos\bluetooth_remote\ardruino_quellcode\remote_0.0\ArduinoCore\Debug\libArduinoCore.a(Print.o)
- .debug_frame   0x000006d8       0xc4 C:\Users\peter\Source\Repos\bluetooth_remote\ardruino_quellcode\remote_0.0\ArduinoCore\Debug\libArduinoCore.a(wiring.o)
- .debug_frame   0x0000079c       0x7c C:\Users\peter\Source\Repos\bluetooth_remote\ardruino_quellcode\remote_0.0\ArduinoCore\Debug\libArduinoCore.a(wiring_digital.o)
- .debug_frame   0x00000818       0x90 C:\Users\peter\Source\Repos\bluetooth_remote\ardruino_quellcode\remote_0.0\ArduinoCore\Debug\libArduinoCore.a(wiring_pulse.o)
- .debug_frame   0x000008a8       0x24 C:\Users\peter\Source\Repos\bluetooth_remote\ardruino_quellcode\remote_0.0\ArduinoCore\Debug\libArduinoCore.a(hooks.o)
+ .debug_frame   0x00000000       0xe0 Sketch.o
+ .debug_frame   0x000000e0      0x110 C:\Users\peter\Source\Repos\bluetooth_remote\ardruino_quellcode\remote_0.0\ArduinoCore\Debug\libArduinoCore.a(HardwareSerial.o)
+ .debug_frame   0x000001f0       0xc0 C:\Users\peter\Source\Repos\bluetooth_remote\ardruino_quellcode\remote_0.0\ArduinoCore\Debug\libArduinoCore.a(HardwareSerial0.o)
+ .debug_frame   0x000002b0       0x54 C:\Users\peter\Source\Repos\bluetooth_remote\ardruino_quellcode\remote_0.0\ArduinoCore\Debug\libArduinoCore.a(main.o)
+ .debug_frame   0x00000304      0x39c C:\Users\peter\Source\Repos\bluetooth_remote\ardruino_quellcode\remote_0.0\ArduinoCore\Debug\libArduinoCore.a(Print.o)
+ .debug_frame   0x000006a0       0xc4 C:\Users\peter\Source\Repos\bluetooth_remote\ardruino_quellcode\remote_0.0\ArduinoCore\Debug\libArduinoCore.a(wiring.o)
+ .debug_frame   0x00000764       0x7c C:\Users\peter\Source\Repos\bluetooth_remote\ardruino_quellcode\remote_0.0\ArduinoCore\Debug\libArduinoCore.a(wiring_digital.o)
+ .debug_frame   0x000007e0       0x90 C:\Users\peter\Source\Repos\bluetooth_remote\ardruino_quellcode\remote_0.0\ArduinoCore\Debug\libArduinoCore.a(wiring_pulse.o)
+ .debug_frame   0x00000870       0x24 C:\Users\peter\Source\Repos\bluetooth_remote\ardruino_quellcode\remote_0.0\ArduinoCore\Debug\libArduinoCore.a(hooks.o)
 
-.debug_str      0x00000000     0x1bae
+.debug_str      0x00000000     0x1bb4
  *(.debug_str)
- .debug_str     0x00000000      0x46e Sketch.o
-                                0x4d1 (size before relaxing)
- .debug_str     0x0000046e     0x103d C:\Users\peter\Source\Repos\bluetooth_remote\ardruino_quellcode\remote_0.0\ArduinoCore\Debug\libArduinoCore.a(HardwareSerial.o)
+ .debug_str     0x00000000      0x454 Sketch.o
+                                0x4ad (size before relaxing)
+ .debug_str     0x00000454     0x105d C:\Users\peter\Source\Repos\bluetooth_remote\ardruino_quellcode\remote_0.0\ArduinoCore\Debug\libArduinoCore.a(HardwareSerial.o)
                                0x1335 (size before relaxing)
- .debug_str     0x000014ab       0x8b C:\Users\peter\Source\Repos\bluetooth_remote\ardruino_quellcode\remote_0.0\ArduinoCore\Debug\libArduinoCore.a(HardwareSerial0.o)
+ .debug_str     0x000014b1       0x8b C:\Users\peter\Source\Repos\bluetooth_remote\ardruino_quellcode\remote_0.0\ArduinoCore\Debug\libArduinoCore.a(HardwareSerial0.o)
                                0x1135 (size before relaxing)
- .debug_str     0x00001536       0x43 C:\Users\peter\Source\Repos\bluetooth_remote\ardruino_quellcode\remote_0.0\ArduinoCore\Debug\libArduinoCore.a(main.o)
+ .debug_str     0x0000153c       0x43 C:\Users\peter\Source\Repos\bluetooth_remote\ardruino_quellcode\remote_0.0\ArduinoCore\Debug\libArduinoCore.a(main.o)
                                 0x2c0 (size before relaxing)
- .debug_str     0x00001579      0x3aa C:\Users\peter\Source\Repos\bluetooth_remote\ardruino_quellcode\remote_0.0\ArduinoCore\Debug\libArduinoCore.a(Print.o)
+ .debug_str     0x0000157f      0x3aa C:\Users\peter\Source\Repos\bluetooth_remote\ardruino_quellcode\remote_0.0\ArduinoCore\Debug\libArduinoCore.a(Print.o)
                                 0xf91 (size before relaxing)
- .debug_str     0x00001923      0x148 C:\Users\peter\Source\Repos\bluetooth_remote\ardruino_quellcode\remote_0.0\ArduinoCore\Debug\libArduinoCore.a(wiring.o)
+ .debug_str     0x00001929      0x148 C:\Users\peter\Source\Repos\bluetooth_remote\ardruino_quellcode\remote_0.0\ArduinoCore\Debug\libArduinoCore.a(wiring.o)
                                 0x24a (size before relaxing)
- .debug_str     0x00001a6b       0xc7 C:\Users\peter\Source\Repos\bluetooth_remote\ardruino_quellcode\remote_0.0\ArduinoCore\Debug\libArduinoCore.a(wiring_digital.o)
+ .debug_str     0x00001a71       0xc7 C:\Users\peter\Source\Repos\bluetooth_remote\ardruino_quellcode\remote_0.0\ArduinoCore\Debug\libArduinoCore.a(wiring_digital.o)
                                 0x2af (size before relaxing)
- .debug_str     0x00001b32       0x60 C:\Users\peter\Source\Repos\bluetooth_remote\ardruino_quellcode\remote_0.0\ArduinoCore\Debug\libArduinoCore.a(wiring_pulse.o)
+ .debug_str     0x00001b38       0x60 C:\Users\peter\Source\Repos\bluetooth_remote\ardruino_quellcode\remote_0.0\ArduinoCore\Debug\libArduinoCore.a(wiring_pulse.o)
                                 0x293 (size before relaxing)
- .debug_str     0x00001b92       0x1c C:\Users\peter\Source\Repos\bluetooth_remote\ardruino_quellcode\remote_0.0\ArduinoCore\Debug\libArduinoCore.a(hooks.o)
+ .debug_str     0x00001b98       0x1c C:\Users\peter\Source\Repos\bluetooth_remote\ardruino_quellcode\remote_0.0\ArduinoCore\Debug\libArduinoCore.a(hooks.o)
                                 0x13f (size before relaxing)
 
-.debug_loc      0x00000000     0x35bf
+.debug_loc      0x00000000     0x34e6
  *(.debug_loc)
- .debug_loc     0x00000000      0x3f4 Sketch.o
- .debug_loc     0x000003f4      0x497 C:\Users\peter\Source\Repos\bluetooth_remote\ardruino_quellcode\remote_0.0\ArduinoCore\Debug\libArduinoCore.a(HardwareSerial.o)
- .debug_loc     0x0000088b      0x161 C:\Users\peter\Source\Repos\bluetooth_remote\ardruino_quellcode\remote_0.0\ArduinoCore\Debug\libArduinoCore.a(HardwareSerial0.o)
- .debug_loc     0x000009ec     0x1f0e C:\Users\peter\Source\Repos\bluetooth_remote\ardruino_quellcode\remote_0.0\ArduinoCore\Debug\libArduinoCore.a(Print.o)
- .debug_loc     0x000028fa      0x269 C:\Users\peter\Source\Repos\bluetooth_remote\ardruino_quellcode\remote_0.0\ArduinoCore\Debug\libArduinoCore.a(wiring.o)
- .debug_loc     0x00002b63      0x5e3 C:\Users\peter\Source\Repos\bluetooth_remote\ardruino_quellcode\remote_0.0\ArduinoCore\Debug\libArduinoCore.a(wiring_digital.o)
- .debug_loc     0x00003146      0x479 C:\Users\peter\Source\Repos\bluetooth_remote\ardruino_quellcode\remote_0.0\ArduinoCore\Debug\libArduinoCore.a(wiring_pulse.o)
+ .debug_loc     0x00000000      0x31b Sketch.o
+ .debug_loc     0x0000031b      0x497 C:\Users\peter\Source\Repos\bluetooth_remote\ardruino_quellcode\remote_0.0\ArduinoCore\Debug\libArduinoCore.a(HardwareSerial.o)
+ .debug_loc     0x000007b2      0x161 C:\Users\peter\Source\Repos\bluetooth_remote\ardruino_quellcode\remote_0.0\ArduinoCore\Debug\libArduinoCore.a(HardwareSerial0.o)
+ .debug_loc     0x00000913     0x1f0e C:\Users\peter\Source\Repos\bluetooth_remote\ardruino_quellcode\remote_0.0\ArduinoCore\Debug\libArduinoCore.a(Print.o)
+ .debug_loc     0x00002821      0x269 C:\Users\peter\Source\Repos\bluetooth_remote\ardruino_quellcode\remote_0.0\ArduinoCore\Debug\libArduinoCore.a(wiring.o)
+ .debug_loc     0x00002a8a      0x5e3 C:\Users\peter\Source\Repos\bluetooth_remote\ardruino_quellcode\remote_0.0\ArduinoCore\Debug\libArduinoCore.a(wiring_digital.o)
+ .debug_loc     0x0000306d      0x479 C:\Users\peter\Source\Repos\bluetooth_remote\ardruino_quellcode\remote_0.0\ArduinoCore\Debug\libArduinoCore.a(wiring_pulse.o)
 
 .debug_macinfo
  *(.debug_macinfo)
@@ -1057,17 +1059,17 @@ END GROUP
 .debug_pubtypes
  *(.debug_pubtypes)
 
-.debug_ranges   0x00000000      0x2e0
+.debug_ranges   0x00000000      0x2c8
  *(.debug_ranges)
- .debug_ranges  0x00000000       0x70 Sketch.o
- .debug_ranges  0x00000070       0x70 C:\Users\peter\Source\Repos\bluetooth_remote\ardruino_quellcode\remote_0.0\ArduinoCore\Debug\libArduinoCore.a(HardwareSerial.o)
- .debug_ranges  0x000000e0       0x28 C:\Users\peter\Source\Repos\bluetooth_remote\ardruino_quellcode\remote_0.0\ArduinoCore\Debug\libArduinoCore.a(HardwareSerial0.o)
- .debug_ranges  0x00000108       0x28 C:\Users\peter\Source\Repos\bluetooth_remote\ardruino_quellcode\remote_0.0\ArduinoCore\Debug\libArduinoCore.a(main.o)
- .debug_ranges  0x00000130      0x128 C:\Users\peter\Source\Repos\bluetooth_remote\ardruino_quellcode\remote_0.0\ArduinoCore\Debug\libArduinoCore.a(Print.o)
- .debug_ranges  0x00000258       0x38 C:\Users\peter\Source\Repos\bluetooth_remote\ardruino_quellcode\remote_0.0\ArduinoCore\Debug\libArduinoCore.a(wiring.o)
- .debug_ranges  0x00000290       0x28 C:\Users\peter\Source\Repos\bluetooth_remote\ardruino_quellcode\remote_0.0\ArduinoCore\Debug\libArduinoCore.a(wiring_digital.o)
- .debug_ranges  0x000002b8       0x18 C:\Users\peter\Source\Repos\bluetooth_remote\ardruino_quellcode\remote_0.0\ArduinoCore\Debug\libArduinoCore.a(wiring_pulse.o)
- .debug_ranges  0x000002d0       0x10 C:\Users\peter\Source\Repos\bluetooth_remote\ardruino_quellcode\remote_0.0\ArduinoCore\Debug\libArduinoCore.a(hooks.o)
+ .debug_ranges  0x00000000       0x58 Sketch.o
+ .debug_ranges  0x00000058       0x70 C:\Users\peter\Source\Repos\bluetooth_remote\ardruino_quellcode\remote_0.0\ArduinoCore\Debug\libArduinoCore.a(HardwareSerial.o)
+ .debug_ranges  0x000000c8       0x28 C:\Users\peter\Source\Repos\bluetooth_remote\ardruino_quellcode\remote_0.0\ArduinoCore\Debug\libArduinoCore.a(HardwareSerial0.o)
+ .debug_ranges  0x000000f0       0x28 C:\Users\peter\Source\Repos\bluetooth_remote\ardruino_quellcode\remote_0.0\ArduinoCore\Debug\libArduinoCore.a(main.o)
+ .debug_ranges  0x00000118      0x128 C:\Users\peter\Source\Repos\bluetooth_remote\ardruino_quellcode\remote_0.0\ArduinoCore\Debug\libArduinoCore.a(Print.o)
+ .debug_ranges  0x00000240       0x38 C:\Users\peter\Source\Repos\bluetooth_remote\ardruino_quellcode\remote_0.0\ArduinoCore\Debug\libArduinoCore.a(wiring.o)
+ .debug_ranges  0x00000278       0x28 C:\Users\peter\Source\Repos\bluetooth_remote\ardruino_quellcode\remote_0.0\ArduinoCore\Debug\libArduinoCore.a(wiring_digital.o)
+ .debug_ranges  0x000002a0       0x18 C:\Users\peter\Source\Repos\bluetooth_remote\ardruino_quellcode\remote_0.0\ArduinoCore\Debug\libArduinoCore.a(wiring_pulse.o)
+ .debug_ranges  0x000002b8       0x10 C:\Users\peter\Source\Repos\bluetooth_remote\ardruino_quellcode\remote_0.0\ArduinoCore\Debug\libArduinoCore.a(hooks.o)
 
 .debug_macro
  *(.debug_macro)
