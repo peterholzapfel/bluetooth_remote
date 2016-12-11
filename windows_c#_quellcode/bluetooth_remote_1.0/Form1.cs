@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Timers;
+using System.Threading;
 
 namespace bluetooth_remote_1._0
 {
@@ -18,12 +19,12 @@ namespace bluetooth_remote_1._0
         public SerialPort mySerialPort;
         public int minute;
         public int second;
-        public System.Timers.Timer aTimer;
+        static System.Windows.Forms.Timer aTimer = new System.Windows.Forms.Timer();
         public Form1()    
         {
             InitializeComponent();
             init_serialPort();
-            l_status.Text = " connecting ...";
+            l_status.Text = " Not Connected";
             iniTimer();
             /*
             if (connect() == true)
@@ -34,21 +35,23 @@ namespace bluetooth_remote_1._0
             {
                 l_status.Text = "not connected";
             }
-
             */
         }
         public void iniTimer()
         {
-            System.Timers.Timer aTimer = new System.Timers.Timer();
-            aTimer.Elapsed += new ElapsedEventHandler(checkConnection);
-            aTimer.Interval = 2000;
-            aTimer.Enabled = true;
+            aTimer.Interval = (5 * 1000); // 45 mins
+            aTimer.Tick += new EventHandler(checkConnection);
         }
 
         public void resetTimer()
         {
+          /*  if (aTimer.Enabled) {
+                addItem("timer ok");
+            }
+            */
             aTimer.Stop();
             aTimer.Start();
+           // addItem("Reset");
         }
         public void disconnect()
         {
@@ -56,14 +59,27 @@ namespace bluetooth_remote_1._0
             l_status.Text = "disconnect";
         }
 
-        private void checkConnection(object source, ElapsedEventArgs e)
+        private void checkConnection(object sender, EventArgs e)
         {
             
-            addItem('z');
-            
+            addItem("Timeout");
+            disconnect();
+            if (connect() == true)
+            {
+                l_status.Text = "connected";
+            }
+            else
+            {
+                l_status.Text = "not connected";
+            }
+
+
 
         }
+        // the Serial Port detection routine 
+        
         public void init_serialPort()
+
         {
             mySerialPort = new SerialPort("COM4");
             mySerialPort.BaudRate = 9600;
@@ -80,24 +96,42 @@ namespace bluetooth_remote_1._0
        
         public bool connect()
         {
-            if (mySerialPort.IsOpen == false) {
-                mySerialPort.Close();
-                mySerialPort.Open();
-                if (mySerialPort.IsOpen)
-                {
-                    l_status.Text = "connected";
-                    return true;
-                }else
-                {
-                    l_status.Text = "not connected";
-                    return false;
-                }
+            aTimer.Stop();
+            
+            try
+            {
+                    mySerialPort.Open();
+                aTimer.Start();
+                return true;
             }
-            return true;
+            catch (System.IO.IOException e)
+            {
+                addItem("No Device Found");
+                aTimer.Start();
+                return false;
+            }
+            
 
             // mySerialPort.Close();
         }
-        public void addItem(char text)
+        /*
+        private void connect_thread(object obj)
+        {
+            aTimer.Start();
+
+            try
+            {
+                mySerialPort.Open();
+             //   return true;
+            }
+            catch (System.IO.IOException e)
+            {
+                addItem("No Device Found");
+           //     return false;
+            }
+        }
+        */
+        public void addItem(String text)
         {
             this.Invoke((MethodInvoker)(() => lb_log.Items.Insert(0, text)));
         }
@@ -110,43 +144,40 @@ namespace bluetooth_remote_1._0
             SerialPort sp = (SerialPort)sender;
             string indata = sp.ReadExisting();
             input = Convert.ToChar(indata[0]);
+            this.Invoke((MethodInvoker)(() => resetTimer()));
             switch (input)
             {
                 case 'a':
-                    addItem(input);
+                    addItem(indata);
                     Controller.VolumeDown();
                     break;
                 case 'b':
-                    addItem(input);
+                    addItem(indata);
                     Controller.VolumeUp();
                     break;
                 case 'c':
-                    addItem(input);
+                    addItem(indata);
                     Controller.PreviousTrack();
                     break;
                 case 'd':
-                    addItem(input);
+                    addItem(indata);
                     Controller.PlayPause();
                     break;
                 case 'e':
-                    addItem(input);
+                    addItem(indata);
                     Controller.NextTrack();
                     break;
                 case 'l':
-                    addItem(input);
-                    break;
-                case 'r':
-                    addItem(input);
+                    addItem(indata);
                     break;
                 case 'x':
-                    DateTime currentDate = DateTime.Now;
-                    minute = currentDate.Minute;
-                    second = currentDate.Second;
-                    resetTimer();
-                    /*
-                    atimer.Stop();
-                    atimer.Start();
-                    */
+                    //addItem(indata);
+                    this.Invoke((MethodInvoker)(() => resetTimer()));
+                    break;
+                case 'r':
+                    addItem(indata);
+                    break;
+                default:
                     break;
             }
         }
@@ -159,6 +190,13 @@ namespace bluetooth_remote_1._0
         private void b_connect_Click(object sender, EventArgs e)
         {
             l_status.Text = " connecting ...";
+                /*
+                Thread t = new Thread(new ParameterizedThreadStart(connect_thread));
+                t.Start();
+                Thread.Sleep(5000); // wait and trink a tee for 500 ms
+                t.Abort();
+
+            */
             if (connect() == true)
             {
                 l_status.Text = "connected";
@@ -184,7 +222,7 @@ namespace bluetooth_remote_1._0
 
         private void b_resetTimer_Click(object sender, EventArgs e)
         {
-            resetTimer();
+            // resetTimer();
         }
     }
 }
