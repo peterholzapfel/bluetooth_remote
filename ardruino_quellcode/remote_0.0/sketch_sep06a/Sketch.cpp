@@ -118,6 +118,7 @@ void loop() {
 		int second_sensor;
 		int t;
 		int x;
+		int ttl;
 		digitalWrite(10, LOW);
 		reduce_volume();
 		first_sensor = 1;
@@ -126,8 +127,15 @@ void loop() {
 			sendCommand('s');		
 		}
 		while (1){
+			ttl = 150;
+
 			digitalWrite(10, LOW);
 			while (1){
+				if (ttl == 0){
+					sendCommand('x');
+					ttl = 100 ;
+				}
+				ttl = (ttl -1) ;
 				delay(5);
 				if (isActive(1)) {
 					digitalWrite(10, HIGH);

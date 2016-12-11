@@ -48,7 +48,7 @@
             // l_status
             // 
             this.l_status.AutoSize = true;
-            this.l_status.Location = new System.Drawing.Point(73, 60);
+            this.l_status.Location = new System.Drawing.Point(38, 90);
             this.l_status.Name = "l_status";
             this.l_status.Size = new System.Drawing.Size(76, 13);
             this.l_status.TabIndex = 1;
