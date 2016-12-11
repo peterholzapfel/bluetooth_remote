@@ -24,10 +24,7 @@ namespace bluetooth_remote_1._0
             InitializeComponent();
             init_serialPort();
             l_status.Text = " connecting ...";
-            System.Timers.Timer aTimer = new System.Timers.Timer();
-            aTimer.Elapsed += new ElapsedEventHandler(checkConnection);
-            aTimer.Interval = 2000;
-            aTimer.Enabled = true;
+            iniTimer();
             /*
             if (connect() == true)
             {
@@ -39,6 +36,19 @@ namespace bluetooth_remote_1._0
             }
 
             */
+        }
+        public void iniTimer()
+        {
+            System.Timers.Timer aTimer = new System.Timers.Timer();
+            aTimer.Elapsed += new ElapsedEventHandler(checkConnection);
+            aTimer.Interval = 2000;
+            aTimer.Enabled = true;
+        }
+
+        public void resetTimer()
+        {
+            this.Invoke((MethodInvoker)(() => aTimer.Stop()));
+            this.Invoke((MethodInvoker)(() => aTimer.Start()));
         }
         public void disconnect()
         {
@@ -65,6 +75,7 @@ namespace bluetooth_remote_1._0
 
             mySerialPort.DataReceived += new SerialDataReceivedEventHandler(DataReceivedHandler);
         }
+
 
        
         public bool connect()
@@ -131,6 +142,7 @@ namespace bluetooth_remote_1._0
                     DateTime currentDate = DateTime.Now;
                     minute = currentDate.Minute;
                     second = currentDate.Second;
+                    resetTimer();
                     /*
                     atimer.Stop();
                     atimer.Start();
