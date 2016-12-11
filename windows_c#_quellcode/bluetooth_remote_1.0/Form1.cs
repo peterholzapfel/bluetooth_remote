@@ -47,8 +47,8 @@ namespace bluetooth_remote_1._0
 
         public void resetTimer()
         {
-            this.Invoke((MethodInvoker)(() => aTimer.Stop()));
-            this.Invoke((MethodInvoker)(() => aTimer.Start()));
+            aTimer.Stop();
+            aTimer.Start();
         }
         public void disconnect()
         {
@@ -180,6 +180,11 @@ namespace bluetooth_remote_1._0
         private void label1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void b_resetTimer_Click(object sender, EventArgs e)
+        {
+            resetTimer();
         }
     }
 }
