@@ -24,9 +24,10 @@ namespace bluetooth_remote_1._0
         {
             InitializeComponent();
             init_serialPort();
+            this.WindowState = System.Windows.Forms.FormWindowState.Minimized;
             l_status.Text = " Not Connected";
             iniTimer();
-            /*
+            
             if (connect() == true)
             {
                 l_status.Text = "connected";
@@ -35,7 +36,7 @@ namespace bluetooth_remote_1._0
             {
                 l_status.Text = "not connected";
             }
-            */
+            
         }
         public void iniTimer()
         {
@@ -133,7 +134,7 @@ namespace bluetooth_remote_1._0
         */
         public void addItem(String text)
         {
-            this.Invoke((MethodInvoker)(() => lb_log.Items.Insert(0, text)));
+           // this.Invoke((MethodInvoker)(() => lb_log.Items.Insert(0, text)));
         }
 
         private void DataReceivedHandler(
